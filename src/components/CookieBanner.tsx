@@ -50,7 +50,7 @@ export default function CookieBanner({ gaId }: { gaId?: string }) {
   if (!visible) return null
 
   return (
-    <div className="fixed bottom-14 md:bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm z-[60] bg-card border border-border rounded-xl p-4 shadow-xl">
+    <div className="fixed bottom-20 md:bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm z-[60] bg-card border border-border rounded-xl p-4 shadow-xl">
       <p className="text-sm text-muted mb-3">{t('cookie.message')}</p>
       <div className="flex gap-2">
         <button onClick={accept}
