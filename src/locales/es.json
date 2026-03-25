@@ -48,7 +48,10 @@
     "dashboard_desc": "KPIs y graficos recalculados en tiempo real con filtros.",
     "kanban_tag": "Kanban / Zustand",
     "kanban_title": "Kanban drag & tap",
-    "kanban_desc": "Drag-and-drop desktop + tap-to-move mobile. Zustand + localStorage persist."
+    "kanban_desc": "Drag-and-drop desktop + tap-to-move mobile. Zustand + localStorage persist.",
+    "mcp_tag": "MCP / Protocolo",
+    "mcp_title": "MCP Server Simulator",
+    "mcp_desc": "Simulador del Model Context Protocol. Visualiza el flujo completo: tool definitions, tool_call (JSON-RPC), ejecucion y respuesta."
   },
   "architecture": {
     "badge": "Arquitectura",
@@ -218,5 +221,16 @@
     "todo": "To Do",
     "in_progress": "En Progreso",
     "done": "Hecho"
+  },
+  "mcp_page": {
+    "title": "MCP Server Simulator",
+    "subtitle": "Simulador interactivo del Model Context Protocol (MCP). Visualiza el flujo completo: definicion de tools, routing, JSON-RPC tool_call, ejecucion y respuesta.",
+    "server_tools": "Tools del servidor MCP",
+    "try_asking": "Prueba a preguntar",
+    "flow": "Flujo MCP",
+    "interaction": "Interaccion MCP",
+    "clear": "Limpiar",
+    "empty": "Escribe un mensaje para ver el flujo MCP completo",
+    "input_placeholder": "Ej: Clima en Barcelona, Busca monitor, Calcula 10 x 5..."
   }
 }

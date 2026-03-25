@@ -8,6 +8,7 @@ import PipelineDemo from './pages/PipelineDemo'
 import DashboardDemo from './pages/DashboardDemo'
 import ApiDemo from './pages/ApiDemo'
 import KanbanDemo from './pages/KanbanDemo'
+import McpDemo from './pages/McpDemo'
 import Navbar from './components/Navbar'
 import MobileFooter from './components/MobileFooter'
 import CookieBanner from './components/CookieBanner'
@@ -15,6 +16,7 @@ import GamificationBadge from './components/GamificationBadge'
 import AchievementToasts from './components/AchievementToasts'
 import Onboarding from './components/Onboarding'
 import { useGamificationStore } from './stores/gamificationStore'
+import { useThemeStore } from './stores/themeStore'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 30_000, retry: 1 } },
@@ -29,6 +31,7 @@ const DEMO_ROUTES: Record<string, string> = {
   '/api': 'demo_api',
   '/dashboard': 'demo_dashboard',
   '/kanban': 'demo_kanban',
+  '/mcp': 'demo_mcp',
 }
 
 function DemoTracker() {
@@ -43,9 +46,18 @@ function DemoTracker() {
   return null
 }
 
+function ThemeSync() {
+  const theme = useThemeStore(s => s.theme)
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+  return null
+}
+
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <ThemeSync />
       <div className="min-h-screen pb-14 md:pb-0">
         <Navbar />
         <DemoTracker />
@@ -57,6 +69,7 @@ export default function App() {
           <Route path="/dashboard" element={<DashboardDemo />} />
           <Route path="/api" element={<ApiDemo />} />
           <Route path="/kanban" element={<KanbanDemo />} />
+          <Route path="/mcp" element={<McpDemo />} />
           <Route path="*" element={<Landing />} />
         </Routes>
         <MobileFooter />

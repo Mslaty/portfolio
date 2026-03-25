@@ -22,7 +22,9 @@ export const ACHIEVEMENTS: Achievement[] = [
   { id: 'demo_api', label: 'Demo API', labelEn: 'API Demo', points: 20 },
   { id: 'demo_dashboard', label: 'Demo Dashboard', labelEn: 'Dashboard Demo', points: 20 },
   { id: 'demo_kanban', label: 'Demo Kanban', labelEn: 'Kanban Demo', points: 20 },
+  { id: 'demo_mcp', label: 'Demo MCP', labelEn: 'MCP Demo', points: 20 },
   { id: 'switch_lang', label: 'Poliglota', labelEn: 'Polyglot', points: 5 },
+  { id: 'switch_theme', label: 'Cambio de look', labelEn: 'New look', points: 5 },
   { id: 'hire_click', label: 'Contratame!', labelEn: 'Hire me!', points: 100 },
 ]
 

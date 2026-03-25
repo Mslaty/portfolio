@@ -9,24 +9,48 @@
   --color-accent: #6c63ff;
   --color-accent-hover: #5a52e0;
   --color-accent-glow: rgba(108, 99, 255, 0.15);
+  --color-text: #e4e4ef;
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --color-bg: #f5f5f7;
+  --color-card: #ffffff;
+  --color-card-hover: #f0f0f5;
+  --color-border: #d8d8e0;
+  --color-muted: #6b6b80;
+  --color-accent: #5a52e0;
+  --color-accent-hover: #4a42d0;
+  --color-accent-glow: rgba(90, 82, 224, 0.12);
+  --color-text: #1a1a2e;
 }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--color-bg);
-  color: #e4e4ef;
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 @layer base {
-  a {
-    color: var(--color-accent);
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 }
+
+/* Light mode text overrides for elements using text-white */
+[data-theme="light"] .text-white { color: var(--color-text); }
+[data-theme="light"] .from-white { --tw-gradient-from: var(--color-text); }
+[data-theme="light"] .bg-white\/5,
+[data-theme="light"] .hover\:bg-white\/5:hover { background-color: rgba(0, 0, 0, 0.04); }
+[data-theme="light"] .bg-white\/\[0\.02\] { background-color: rgba(0, 0, 0, 0.02); }
+[data-theme="light"] .bg-white\/\[0\.03\] { background-color: rgba(0, 0, 0, 0.02); }
+[data-theme="light"] .bg-white\/\[0\.04\] { background-color: rgba(0, 0, 0, 0.03); }
+[data-theme="light"] .bg-white\/\[0\.06\] { background-color: rgba(0, 0, 0, 0.05); }
+[data-theme="light"] .hover\:bg-white\/\[0\.02\]:hover { background-color: rgba(0, 0, 0, 0.03); }
+[data-theme="light"] .hover\:bg-white\/\[0\.03\]:hover { background-color: rgba(0, 0, 0, 0.03); }
+[data-theme="light"] pre { color: var(--color-text); }
+[data-theme="light"] code { color: var(--color-accent); }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -40,7 +64,6 @@ body {
   0%,60%,100% { opacity:0.3; transform:translateY(0); }
   30% { opacity:1; transform:translateY(-3px); }
 }
-
 @keyframes slideIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }

@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Code2, Menu, X, Globe } from 'lucide-react'
+import { Code2, Menu, X, Globe, Sun, Moon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useGamificationStore } from '../stores/gamificationStore'
+import { useThemeStore } from '../stores/themeStore'
 
 export default function Navbar() {
   const { pathname, hash } = useLocation()
   const { t, i18n } = useTranslation()
   const unlock = useGamificationStore(s => s.unlock)
+  const { theme, toggle: toggleTheme } = useThemeStore()
   const isHome = pathname === '/'
   const [open, setOpen] = useState(false)
 
   const toggleLang = () => { i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es'); unlock('switch_lang') }
+  const handleTheme = () => { toggleTheme(); unlock('switch_theme') }
 
   const navLinks = isHome
     ? [
@@ -23,18 +26,15 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Desktop: hidden on mobile (mobile uses MobileFooter) */}
       <nav className="sticky top-0 z-50 hidden md:flex items-center justify-between px-6 py-3 border-b border-border bg-bg/80 backdrop-blur-xl">
         <Link to="/" className="flex items-center gap-2 text-lg font-bold text-white hover:text-accent transition-colors no-underline">
           <Code2 size={22} /> <span className="hidden sm:inline">Matías Suárez</span><span className="sm:hidden">MS</span>
         </Link>
 
-        {/* Hamburger button */}
         <button onClick={() => setOpen(!open)} className="text-muted hover:text-white transition-colors p-1">
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        {/* Dropdown menu */}
         {open && (
           <div className="absolute top-full right-0 mt-0 mr-4 w-56 bg-card border border-border rounded-xl shadow-xl py-2 z-50">
             {navLinks.map(l => (
@@ -55,6 +55,11 @@ export default function Navbar() {
               {t('nav.ocr_demo')}
             </Link>
             <div className="border-t border-border my-1" />
+            <button onClick={() => { handleTheme(); setOpen(false) }}
+              className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-muted hover:text-white hover:bg-white/[0.03] transition-colors">
+              {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
+              {theme === 'dark' ? (i18n.language === 'es' ? 'Modo claro' : 'Light mode') : (i18n.language === 'es' ? 'Modo oscuro' : 'Dark mode')}
+            </button>
             <button onClick={() => { toggleLang(); setOpen(false) }}
               className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-muted hover:text-white hover:bg-white/[0.03] transition-colors">
               <Globe size={14} /> {t('nav.language')}
@@ -63,7 +68,6 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Close overlay */}
       {open && <div className="fixed inset-0 z-40 hidden md:block" onClick={() => setOpen(false)} />}
     </>
   )

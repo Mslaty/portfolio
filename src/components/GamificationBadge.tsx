@@ -33,7 +33,7 @@ export default function GamificationBadge() {
     <>
       {/* Hire CTA - appears when max level reached */}
       {readyToHire && !hireClicked && (
-        <div className="fixed bottom-20 md:bottom-4 right-4 z-50 animate-[slideIn_0.5s_ease-out]">
+        <div className="fixed bottom-28 md:bottom-4 right-4 z-50 animate-[slideIn_0.5s_ease-out]">
           <button
             onClick={handleHireClick}
             className="flex items-center gap-2 px-5 py-3 bg-accent text-white font-semibold rounded-xl shadow-xl hover:bg-accent-hover transition-all hover:scale-105 text-sm"
@@ -47,7 +47,7 @@ export default function GamificationBadge() {
       {/* Floating badge */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-20 md:bottom-4 left-4 z-50 flex items-center gap-2 px-3 py-2 bg-card border border-border rounded-full shadow-lg hover:border-accent transition-all"
+        className="fixed bottom-28 md:bottom-4 left-4 z-50 flex items-center gap-2 px-3 py-2 bg-card border border-border rounded-full shadow-lg hover:border-accent transition-all"
       >
         <span className="text-base">{level.emoji}</span>
         <div className="flex flex-col items-start">
@@ -66,7 +66,7 @@ export default function GamificationBadge() {
       {open && (
         <>
           <div className="fixed inset-0 z-50" onClick={() => setOpen(false)} />
-          <div className="fixed bottom-32 md:bottom-16 left-4 z-50 w-72 max-h-[70vh] bg-card border border-border rounded-xl shadow-xl overflow-hidden">
+          <div className="fixed bottom-40 md:bottom-16 left-4 z-50 w-72 max-h-[70vh] bg-card border border-border rounded-xl shadow-xl overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-border">
               <div className="flex items-center gap-2">

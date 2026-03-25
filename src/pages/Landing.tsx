@@ -25,7 +25,7 @@ export default function Landing() {
           {t('hero.title')}
         </h1>
         <div className="flex flex-wrap gap-2 justify-center mb-8">
-          {['React', 'Vite', 'Tailwind', 'TypeScript', 'APIs', 'WebSocket', 'AI Agents', 'Zustand', 'React Query', 'Vitest'].map(tag => (
+          {['React', 'Vite', 'Tailwind', 'TypeScript', 'APIs', 'WebSocket', 'AI Agents', 'MCP', 'Zustand', 'React Query', 'Vitest'].map(tag => (
             <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-white/[0.06] text-muted border border-border">{tag}</span>
           ))}
         </div>
@@ -110,6 +110,7 @@ export default function Landing() {
             { tag: t('demos.api_tag'), path: '/api', title: t('demos.api_title'), desc: t('demos.api_desc'), tech: ['Zustand', 'React Query ready', 'RBAC'] },
             { tag: t('demos.dashboard_tag'), path: '/dashboard', title: t('demos.dashboard_title'), desc: t('demos.dashboard_desc'), tech: ['React', 'useMemo', 'Charts CSS'] },
             { tag: t('demos.kanban_tag'), path: '/kanban', title: t('demos.kanban_title'), desc: t('demos.kanban_desc'), tech: ['Zustand', 'persist', 'DnD + touch'] },
+            { tag: t('demos.mcp_tag'), path: '/mcp', title: t('demos.mcp_title'), desc: t('demos.mcp_desc'), tech: ['MCP', 'JSON-RPC', 'Tool routing', 'Protocol'] },
           ].map(d => (
             <Link key={d.path} to={d.path} className="group bg-card border border-border rounded-xl p-5 transition-all hover:border-accent hover:shadow-[0_0_20px_var(--color-accent-glow)] hover:-translate-y-0.5 no-underline">
               <span className="inline-block text-[0.65rem] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full bg-accent-glow text-accent mb-2">{d.tag}</span>
@@ -130,7 +131,7 @@ export default function Landing() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {[
             { title: t('architecture.frontend'), color: 'text-accent', items: ['React (hooks, composition)', 'TypeScript (strict)', 'Tailwind CSS (utility-first)', 'Vite (HMR, tree-shaking)', 'React Query (async state)', 'i18next (ES/EN)'] },
-            { title: t('architecture.state'), color: 'text-accent', items: ['Zustand (global state, persist)', 'Services layer (gemini.ts, pipeline.ts)', 'Custom hooks (useApiKey)', 'LLM APIs (prompt engineering)', 'WebSocket ready (real-time)'] },
+            { title: t('architecture.state'), color: 'text-accent', items: ['Zustand (global state, persist)', 'Services layer (gemini.ts, pipeline.ts)', 'Custom hooks (useApiKey)', 'LLM APIs (prompt engineering)', 'MCP (tool routing, JSON-RPC)', 'WebSocket ready (real-time)'] },
             { title: t('architecture.testing'), color: 'text-accent', items: ['Vitest (23 unit tests)', 'Playwright (E2E)', 'Testing Library', 'SonarQube', 'GitHub Flow + CI/CD'] },
           ].map(col => (
             <div key={col.title} className="bg-card border border-border rounded-xl p-5">
@@ -175,7 +176,7 @@ export default function Landing() {
           {[
             { title: 'Frontend', icon: Globe, items: ['React (hooks, composition)', 'TypeScript (strict)', 'Tailwind CSS (utility-first)', 'Vite (HMR, tree-shaking)', 'Next.js (SSR/SSG)', 'i18next (ES/EN)'] },
             { title: 'State & Async', icon: Database, items: ['Zustand (global state)', 'React Query (server state)', 'Custom hooks', 'WebSocket (real-time)', 'REST APIs'] },
-            { title: 'IA & Agents', icon: Bot, items: ['Gemini API (vision, chat)', 'Prompt engineering', 'AI chat agents', 'OCR / document parsing', 'N8N (webhooks, flows)'] },
+            { title: 'IA & Agents', icon: Bot, items: ['Gemini API (vision, chat)', 'MCP (Model Context Protocol)', 'Prompt engineering', 'AI chat agents', 'OCR / document parsing', 'N8N (webhooks, flows)'] },
             { title: 'Testing & QA', icon: TestTube, items: ['Vitest (unit, 23 tests)', 'Playwright (E2E)', 'Testing Library', 'SonarQube', 'GitHub Flow + CI/CD'] },
             { title: 'Backend', icon: Server, items: ['Node.js / Express', 'FastAPI / Python', 'PostgreSQL / SQLite', 'Docker', 'Ubuntu'] },
             { title: 'Data & BI', icon: BarChart3, items: ['SQL (queries, joins)', 'PowerBI (DAX, M)', 'ETL pipelines', 'CSV/JSON processing', 'Data normalization'] },
