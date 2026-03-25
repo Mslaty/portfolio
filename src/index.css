@@ -38,8 +38,11 @@ body {
   a:hover { text-decoration: underline; }
 }
 
-/* Light mode text overrides for elements using text-white */
-[data-theme="light"] .text-white { color: var(--color-text); }
+/* Light mode: text-white becomes dark, EXCEPT on accent/colored bg buttons */
+[data-theme="light"] .text-white:not(.bg-accent):not(.bg-green-600):not(.bg-green-500):not(.bg-accent-hover) { color: var(--color-text); }
+[data-theme="light"] .bg-accent .text-white { color: #ffffff; }
+[data-theme="light"] .bg-green-600 .text-white { color: #ffffff; }
+[data-theme="light"] .bg-green-500 .text-white { color: #ffffff; }
 [data-theme="light"] .from-white { --tw-gradient-from: var(--color-text); }
 [data-theme="light"] .bg-white\/5,
 [data-theme="light"] .hover\:bg-white\/5:hover { background-color: rgba(0, 0, 0, 0.04); }
